@@ -1,0 +1,118 @@
+DEVOXX France 2023
+Conférence : Rendons le DDD aux DEVS
+
+Arnaud Thiefaine : athiefaine
+Dorra Bartaguiz : iAmDorra
+Livre : Software Craft.
+Code KATA disponible sur GitHub
+ 
+
+PARTIE 1 : KATA
+---------------
+
+Pour refactoriser code LEGACY : toujours partir des tests et de la couverture de tests
+Prendre un extrait de code et le transformer dans un premier temps en méthode. 
+Ensuite déplacer la méthode dans une classe spécifique
+Toujours vérifier que vos tests fonctionnent toujours. 
+Conversion du code statique vers du non statique
+Au lieu d'utiliser le type primitif, on créé une classe et crééer des opérations entre ces instances d'objets. Notion de ValueOBject
+DSL : Domain Spécific Language. Meilleure compréhension du domaine. 
+L'intérêt du DSL est de rajouter des tests. 
+L'objectif est de permettre à un non DEV de lire le code Métier.
+
+Bouquin : SecureByDesign
+
+Exemple du KATA : Transformer BigDecimal en classe Amount.
+
+Cleaning the deck : Comment supprimer tout ce qui est facile à enlever du code. 
+Par exemple supprimer les commentaires superflus
+Attention au nommage des variables, méthodes et classes
+Quand on met trop de commentaires, cela veut dire que le code n'est pas lisible.
+Vous pouvez toujours supprimer du code mais bien vérifier que le code est couvert par les tests.
+
+Rapprocher le code XML dans la classe toujours en exécutant les tests.
+Pattern Sandwich 
+Morceaux de codes Métier(ingredients) avec de la technique (Pain). Au centre nous allons mettre le Métier au centre avec de la technique autour. 
+
+Petites modifications : ne pas oublier de faire des commits intermédiaires
+Loi Demeter : ne pas parlez aux étrangers (eviter de faire des appels, d'appels ....) : Encapsuler dans un objet.
+
+Techniques pour identifier des domaines Métiers : BoundedContext (Atelier EventStorming)
+Mots: "tions" ou "ing" : nous sommes dans un BoundedContext.
+Utiliser des personas (persona explicites mais aussi implicites)
+Notions de Synonymes (Acheter une place, prendre une place, Réserver une place, ....)
+Termes sens multiples. 
+
+PARTIE 2 
+--------
+
+Trois complexités du logiciel
+Introduction de l'architecture hexa
+Complexite essentielle : Nature du problème, contraintes liées au Métier. On a pas la main dessus
+Complexité obligatoire : Outillage technique à mettre en oeuvre pour répondre au pb. Liés aux contraintes d'exploitation (frameworks, ....)
+Complexité accidentelle : Erreurs de développement. Essentiel de la dette technique. 
+
+Complexite essentielle : Incompréssible. 
+Complexité obligatoire : Compressible. Pas obliger d'utiliser la dernière version du FW. 
+Complexité accidentelle : Suppressible. La troisième peut être réduite
+
+Les deux premières sont souvent croisées donc sans les réduire, on peut les simplifier. 
+L'archi Hexa permet d'isoler le Métier de la technique. 
+Alister Cocburn
+Le code le plus précieux est celui se trouvant dans le domaine. Cette partie évolue moins vite que la technique. 
+Archi Hexa : notions de ports/adapters
+Approche left/right side
+Archi hexa facilite les tests. La partie Domaine peut être tester de bout en bout. 
+Le Mock est plutôt sur la partie Infra
+
+On rapproche le comportement le plus proche des données. 
+Si methode prend un paramètre de type "objet" : fortes chances que l'on puisse la déplacer.
+
+Pattern Specification
+Invariant de domaine de type invariant
+Valide un objet du domaine avec isSatisfiedBy
+Modélise une règle de gestion
+Configurable. 
+Ces objets "Spécification" modèle des règles Métiers sur les objets du domaine. 
+Création d'une interface "Spéfification" avec une méthode à implémenter. 
+lien : https://blog.engineering.publicissapient.fr/2009/12/29/le-pattern-specification-pour-la-gestion-de-vos-regles-metier/ 
+
+Repository : gère la collection d'objets Métier : Support de stockage des objets métiers
+Gère la transaction 
+Effet de bord
+Deux facetes dans le repository : port et l'adapter. 
+Il est bien sur injectable. 
+
+Agregat
+Grappe d'objets qui a une identité unique
+Racine de l'agrégat
+cela sert à protéger l'invariant du domaine
+Consistance transactionnelle. 
+Cas simple : Commande regroupant des lignes de commandes. 
+On sauvegarde la commande et non les lignes de commandes. 
+L'agregat est ici la commande. 
+Fonctionne avec le repository : On sauvegarde l'agregat et on charge l'agregat. 
+Agregat simple = un seul niveau
+
+ex : notion d'adresse : adresse de livraison / adresse de facturation. A eclater en plusieurs boundedContexts. 
+ValueObject
+-----------
+Pas d'identité
+Egalité par valeur
+immuable
+Pas d'effet de bord. 
+
+Entity
+------
+Identité
+Continuité dans le temps. 
+
+Ces deux types d'objets se retrouvent dans le domaine. 
+
+Notion de Service
+Stateless
+Injectable
+Contient de la logique Métier que l'on ne peut pas mettre dans une valueObject ou un entity. 
+Il faut se poser la question pour savoir si le code on doit le laisser dans le service ou au contraire créer des VO ou des Entity. 
+Vérifier que l'on a besoin de services dans nos applications. 
+

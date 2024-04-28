@@ -1,0 +1,52 @@
+DEVOXX 2023
+
+IA va t'elle changer le rôle du développeur.
+
+Eric Grenon / Louis Guillaume Morand ( Microsoft)
+
+Histoire de l'IA
+Démarrage Année 50. Limite matérielle des machines
+Années 60 : Machine Learning. Faire apprendre à la machine
+Années 2000: Deep Learning (Réseaux noronaux, Apprentissage automatique). Voila les données. Trouve toi même les comportements. 
+Années 2020 : IA Générative. Création de contenu écrit, visuel. La machine a appris qq chose. Elle est capable de créer. Elle est en capacité de générer. Concept de prompt
+Ce concept est une rupture. 
+On a déjà dépassé le stade du développement. 
+
+L'humain est prétentieux. La capacité de création ne lui est pas exclusive. 
+Intélligence générative. Domaine borné. L'humain est maléable. Pas la machine. Il faut lui réapprendre. 
+L'humain met du sens dans ce qu'il fait. Pas la Machine. 
+
+Différence entre création / innovation.
+La machine fait de la création pas de l'innovation. Création de qq chose qui n'existe pas actuellement. 
+On accepte assez peu qu'une machine créé qq chose. 
+
+Concept de Prompt
+Comprendre la question et générer une réponse dans le même contexte. 
+Parler à la machine avec mes propres mots. Générer le modèle universel et ensuite on le spécialise. 
+C'est une conversation. le contexte va s'enrichir avec les précisions sur la question. 
+
+Démo COPILOT
+Plugin VisualStudioCode à vérifier.
+On va plus loin que de l'auto completion
+
+Developpeur Augmenté.
+En quoi cela peut nous aider. 
+Rapidité d'écriture. 
+Délai de livraison
+Code plus stable
+Maintenabilité (code plus lisible)
+On va aussi apprendre beaucoup plus vite.
+
+Indicateurs / KPIs
+On passe moins de temps à chercher
+On reste plus concentré.
+
+L'IA a changé notre métier de développeur. (IA Générative)
+Impact sur les Métiers de création. 
+On code vraiment que 10% de l'application (FW, ....)
+Plus il y a d'intelligence artificielle, il faut plus d'intelligence humaine.
+Nous humains nous avons le sens et pas la machine. 
+
+
+
+

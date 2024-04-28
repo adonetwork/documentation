@@ -1,0 +1,90 @@
+DEVOXX 2023
+Le cache HTTP
+
+Hubert Sablonnière (Clever Cloud)
+
+Mai 1996 ; Publication RFC 1945
+Concepts de base du cache HTTP
+Client fait un appel, réponse du serveur et au retour la réponse est en cache. Si même demande, on utilise le cache. 
+Avantages :
+Réduction du temps de chargement. 
+Réduire la charge
+Meilleures perfs.
+
+Cache c'est un peu compliqué. 
+Histoire d'entête. 
+Important : cache-control
+Histoire de sources. 
+Pb Front et Back End
+
+Dans la réponse, il dépose un entête HTTP
+cache-control 
+  Paramètres : max-age= (en secondes). Délai pris après la génération de la réponse
+  Quand c'est périmé, Firefox : page about cache. Même si c'est périmé le navigateur le conserve jusqu'à une revalidation du contenu avec le serveur. 
+  
+ Requêtes conditionnelles
+ notion etag : empreinte numérique. Avec le tag, le serveur renvoi une réponse. 
+ Autre facon : last-modified. 
+ Cela donne la date de modification et non une empreinte numérique. 
+ Il existe un cache heuristique. on détermine une date de préemption 
+ 
+ Plutot forcer la revalidation : paramètre : no-cache. Cela ne veut pas dire pas de cache. Tu as le droit de cacher mais tu est dans l'obligation 
+ de revalider.
+ Comportement similaire au etag
+ 
+ Autre paramètre ; no-store. Là dans ce cas là il n'y a pas de cache. 
+ 
+ Autre paramétre : must-revalidate. 
+ a utiliser avec max-age
+ Revalide si c'est périmé
+ 
+ Autre paramètre (avec CSS)
+ immutable
+ Pas de revalidation en cas de rechargement. 
+ Cela fonctionne avec SAFARI
+ Cela recharge que la page HTML et pas les ressources
+ Immutable ne fonctionne pas. Car c'est le comportement par défaut de Chrome. 
+ Firefox fonctionne à l'identique de Chrome.
+ 
+ On ajoute une empreinte dans le nom du fichier. Le fichier est toujours différent.
+ 
+ Deux entêtes obsolètes pragma-no-cache. 
+ 
+ Le cache du navigateur est un cache privé. Le cache partagé on le retrouve sur les serveurs 
+ Reverse Proxy, 
+ CDN 
+ La réponse va être stockée dans les différentes couches de cache.
+ 
+ Cas des applications connectés (SessionId)
+ Directive "private" permet de ne pas les stocker dans le cache partagé. 
+ Si il y a une directive "authorization", on ne retrouve la réponse que dans les caches privés.
+ 
+ prefixe "s" (ex s-maxage). On ne stocke la réponse que dans les caches partagés. 
+ Directives maintenant pour identifier les caches partagés. 
+ 
+ Concept "vary"
+ Même appel sur plusieurs navigateurs le contenu peut être différent si langues différentes : négociation de contenus
+ Contenu qui varie en fonction d'un paramètre comme accept-language
+ Ne pas utiliser la négociation de contenus mais utiliser plutôt des url différentes
+ 
+ Le cache navigateur est un disk cache
+ Firefox, Chrome utilise le memory cache (rechargement de la même page sans navigation)
+ Si on change de site, on passe par un disk-cache
+ 
+ Autre cache : moduleMap (ex plusieurs pages qui chargent le même module JS)
+ 
+ Cache du Push HTTP/2
+ HTTP/2 has been . Il est en train d'être supprimé de Chrome.
+ 
+ AppCache has been 
+ ServiceWorker : intercepte les appels entre le navigateur et le réseau (utilise un cache également)
+ Plusieurs caches sont communs au navigateur (Concept onglet)
+ 
+ BF Cache : Navigation Précédent / Suivant
+ Tout est restauré ; valeurs, focus, scrolling
+ 
+ 
+ 
+ 
+ 
+ 

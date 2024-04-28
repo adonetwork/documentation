@@ -1,0 +1,106 @@
+DEVOXX 2023
+
+Savez Vous vraiement comment fonctionne GIT ?
+Sebastien Lecacheur
+Société ODIGO 
+
+Commandes porcelain (Commandes de base)
+Il y a aussi des commandes de bas niveau
+
+GIT : Serveur central décentralisé de gestionnaire de version
+
+La dernière couche de GIT c'est une MAP de persistance
+
+Dans GIT, tout est objet (Sequence de bytes + hash)
+git hash-object : encode "hash" d'un objet (String par ex)
+
+Chaque objet possède un hash et il est unique (SHA-1)
+
+Comment stocke t'il les données ?
+Dans le rep GIT
+
+git hash-object -w : calcule hash et sauvegarde
+
+dans le sous répertoire "objects" : création d'un fichier et le nom du fichier est le hash de l'objet
+git cat-file -t : type
+git cat_file -p permet de voir le contenu de l'objet
+
+Suivi de contenu
+----------------
+git status : contenu du GIT
+historique : git-log
+
+Versionning
+-----------
+Dans le commit, on a le parent qui fait référence au commit initial
+Tag annonté pointe sur un commit
+git count-object donne le nombre d'objet dans le repo
+
+Notion de Branches
+------------------
+git branch
+.git/refs/heads/main = nom de la branche. 
+
+Une branche main est uniquement une référence à un commit spécifique
+branche courant : "*" sur la branche en question
+
+fichier : .git/HEAD pointeur vers la branche courante. 
+changer de branche : git switch
+modification du fichier HEAD : la branche courante a changé. 
+
+Merging de deux branches
+git merge nom de la branche
+
+Trois notions : Commit , tree, objects
+Se concentrer uniquement sur l'historique des commits
+Répertoire ".git" le plus important. 
+pour ne perdre des commits, on créé une branche sur le commit en question
+
+Branche courante suit les nouveaux commits
+Quand on se déplace version git met à jour le repo de travail
+GIT passe un ramasse miette pour supprimer les commits qui ne sont plus accessibles. 
+
+Merge : on voit tous les commits
+Rebase : c'est linéaire mais l'histo est faux puisque les commits qui ne sont plus accessibles sont supprimés par le ramasse miette
+
+les tags sont dans le répertoire ./git/refs/tags
+tag annoté : tag avec un libellé
+Un tag est une branche qui ne bouge pas . 
+
+Gestion de version distribué
+----------------------------
+Depot distant :
+Récupération d'un dépot distant : git clone
+on récupère la branche courante
+
+Git compresse les objets pour des besoins de place : fichiers pack
+
+fichier config : ./git/config
+git branch -all : liste toutes les branches meme celles distantes.
+
+dépots distants : ./git/refs/remotes
+
+une branche distance c'est juste une référence sur une commit
+
+git show-ref branche : contenu de la branche
+
+git push : synchronisation local / distant
+
+Attention : git push -f
+On déplace le pb 
+
+Il faut faire un merge avec le distant (fetch) avant de faire un push
+
+Rebase uniquement des branches qui sont en local mais pas avec des commits distants
+
+
+
+
+
+
+
+
+
+
+
+

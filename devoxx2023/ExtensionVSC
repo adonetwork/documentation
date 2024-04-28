@@ -1,0 +1,48 @@
+DEVOXX 2023
+
+Créer ma première extension VSC en 30 minutes chrono
+Sébastien Blanc
+AIVEN
+
+VSCODE est un IDE 
+Création d'extensions
+
+Générateur d'extension : yo code
+plusieurs langages : typescript
+npm à utiliser
+Utilisation de node.js
+
+Création du squelette d'extension. 
+
+fichier extension.ts (function activate) : point d'entrée. 
+
+package.json : fichier json "contribute"
+Points de contribution notamment la contribution
+objet vscode tu accèdes à tout l'API de l'IDE
+
+npm install axios --save
+
+mettre en oeuvre des options : vscode.window.showQuickPick
+
+Création de vues
+Création d'une classe avec import de la librairie "vscode"
+Rajouter un point de contribution : views
+vscode.windows.createview dans la vue "explorer"
+
+Création d'une view (barre de tâches)
+point de contribution "viewscontainers" , activitybar
+Il faut un icone par défaut
+Chaque vue est une webview
+création d'une classe qui implémente une classe WebviewViewProvider
+Il faut aussi créer une nouvelle dans le point de contribution.
+
+code.visualstudio.com
+
+
+
+
+
+
+
+
+

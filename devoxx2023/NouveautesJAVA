@@ -1,0 +1,74 @@
+DEVOXX 2023
+Les nouveautés JAVA 19 / 20
+
+JM Doudoux
+Evolutions sur un rythme de tous les 6 mois
+Java 19 : Sept 2022
+Java 20 : Mars 2023
+
+7 JEPs sur trois projets (Amber, Panama, Loom) 
+
+Projet AMBER
+Record Patterns
+Le record pattern permet de déconstruire les valeurs d'un record
+Avec 19, record utilisé avec instanceof et switch
+Avec 20 : on rajoute le for
+
+si elt est null PatternMatchException
+le nom des composants peut être différent
+les records pattern peuvent être impliqués
+
+Support de la valeur null dans les switchs avec les records pattern
+nouveau mot clé "when" qui remplace un "&&" dans une condition de switch
+
+Projet PANAMA
+Foreign Function and Memory API
+Accéder à du code natif. 
+
+Intégré dans le module java.base
+API de bas niveau
+Future alternative à JNI 
+
+Vector API : Calculs vectoriels
+
+Projet Loom
+Threads virtuels
+Mappé sur un thread de l'OS quand on créé un thread
+on décharge la JVM Tout est géré par l'OS
+Cela limite le nb de threads
+PB : On utilise de plus en plus de threads
+Les threads passent beaucoup de temps à attendre
+
+Threads virtuels = Threads Légers
+Lien n-n entre thread Java et OS
+On conserve le principe d'un thread par requête
+Classe fille de Thread
+on peut utiliser les outils de debug et profiling de la JVM
+
+C'est transparent pour le DEV
+Interface scellée Thread.Builder avec deux fabriques pour des threads OS ou virtuels
+
+pas besoin de mettre des threads virtuels dans un pool
+Ce sont des threads démons. 
+
+Structured Concurrency
+Simplifier la programmation multithread
+Ce modèle permet d'écriture du code dans un style synchrone avec une exécution asynchrone.
+
+Scoped values
+partager des objets dans le code exécuté dans des threads
+Remplace ThreadLocal
+durée de vie limitée
+
+Autres évolutions
+Double.toStrng et Float.toString plus restrictifs
+Nouvelles fabriques pour des objets HashSet et HashMap (en indiquant la taille)
+Java 20 compile du Java 8 à 20
+Améliorations JShell
+Recherche améliorée sur Javadoc
+
+Pouvoir accéder aux certificats de la machine locale sous Windows
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      

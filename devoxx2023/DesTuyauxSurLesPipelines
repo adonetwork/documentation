@@ -1,0 +1,179 @@
+DEVOXX 2023
+Des Tuyaux sur les pipelines.
+
+Philippe Charriere
+Pierre Antoine Gregoire.
+
+Origines des pipelines CI/CD
+Influence : Pratiques Agiles, TU,
+Rythmes elevés dans le processus de livraison sur des périmètres restreints
+Intégration Continue
+On est plus en Waterfall et cela accelère le rythme de livraison et derrière la qualité des livraisons.
+
+Fin année 90 / 2000 : Internet et Cloud
+Emergence de la virtualisation
+Matériel plus léger. 
+Mise à l'échelle : Augmentation de machines / Augmentation des capacités des machines (RAM, CPU)
+
+Au final l'infra est plus dynamique. 
+
+Arrivée de DEVOPS (2007 / 2008)
+Fait le lien entre les pratiques agiles et l'infra moderne
+CALMS : Culture, Automatisation, Lean, Mesures, Sharing(Partage)
+
+Continuous Integration (CI)
+L'integration continue est une pratique de developpement logiciel ou les membres de l'équipe intégrent frequemment leurs travaux. Chaque changement déclenche la construction d'un livrable pret pour la production
+La validation du livrable est faite au plus tot
+Le déploiement de l'infra est testé en amont et préparé pour la livraison
+Mais le déploiement en Production est toujours sujet à validation humaine. 
+
+Continuous Deployment (CD)
+Livraison continue ++ 
+Cela nécessite un haut niveau d'automatisation. 
+Etre capable aussi de revenir en arriere si problème.
+
+Les pipelines = recettes de cuisine
+Assemblage d'étapes de construction, validation, d'installation, déploiement, corrections, ....
+Avoir des flux logiques automatisés avec des résultats prédictibles.
+
+Pourquoi les pipelines
+Trop de tests manuels
+Feedback trop long
+Déploiements manuels à partir de modes opératoires
+manque de visibilité, controle et qualité
+Besoin d'accelerer : réagir plus rapidemment aux changements fonctionnels et techniques
+Une mise en Production devient un non evenement 
+
+CI/CD
+ETape 1 : Push du code. 
+Buid / tests / deploy / end
+Stage dans le temps et les jobs sont lancés en // dans le stage.
+Merge Request = Pull Request
+
+Solution indispensable : SCM 
+Sur les commits appliquer les conventions de nommage. 
+Utilisation des branches aura un impact sur le CI/CD. 
+Ex 
+Feature Branch = Une branche par évolution 
+Release Branch = Branche ou on merge les fonctionnalités à livrer. 
+HotFix Branch 
+
+Tagging Strategy
+Un tag est un pointeur annoté sur un commit particulier. 
+On a une branche de release et on peut annoter des tags correspondants aux différentes versions. 
+Si on doit appliquer un fix sur une version donnée, on créé une branche depuis un tag de version. 
+
+Strategie de build 
+Qu'est ce qui déclenche un build 
+Chaque commit
+Toutes les branches
+chaque merge/pull request
+un changement dans un répertoire
+un tag
+.....
+
+Déclencher le build plus tôt et le plus frequemment possible. 
+
+Git Pre-commit hook : Exemple de commits de base. 
+Sur les revues de code : Conventionnel comments (ex bravo, magic, alerte, question, warning, ...
+
+Etape 2 : Build
+le build doit pouvoir etre exécuté en local et sur un serveur de CI
+un build doit être portable / isolé / maitrisé.
+
+Dans le build, on retrouve les TU et l'analyse du code. 
+Il faut optimiser la phase de tests. les paralléliser s'ils sont assez isolés. utiliser des mocks ou simulateurs pour accelere l'étape de testing.
+
+Taches de pipelines a exécuter dans des conteneurs
+Un bon design des images utilisés est important. 
+
+Etape 3 : Tests Automatisés
+Les tests sont exécutés sur l'application déployée. Donc il faut déployer l'application avec de lancer les tests
+Ces tests peuvent faire appel à des dépendances tierces
+Ces tests sont plus fragiles mais ont une valeur Métier plus importante.
+Ces tests sont consommateurs de ressources.
+
+Tests de fiabilité des APIS
+Tester la consommation de l'API du point de vue client
+Permet de controler le comportement la non regression et la stabilité des versions de l'API
+Data fuzzing : Outil fournit des trames sur les API afin de tester la robustesse des APIs
+Les tests sont basés sur la couverture ou le comportement;
+
+Tests d'intégration
+Tests en incluant les dépendances. Ces tests permettent de valider les vues externes du produit
+On supprime les mocks par les véritables dépendances.
+
+Load Testing
+Tests de charges, robustesse et de performances. 
+Solution Hey : solution plus simple que du JMeter / Gatling
+
+Tests de sécurité
+en plus de l'analyse du code, des scans de vulnérabilités et des tests de pénétration
+Site OWASP : liste d'outils à utiliser 
+Outils DAST à passer sur le code. 
+
+Etape 4 : Stockage des binaires
+Pour passer le résultat compilé du build entre les différentes étapes de test, déploiement dans les différents environnements. Il convient de stocker les binaires produits dans
+des dépôts. 
+Les registries de conteneurs
+Etablir un SBOM (Software Bill of Materiels) = inventaire des composants logiciels utilisés est une bonne manière de gérer le cela. 
+Il existe des outils pour scanner le code et les binaires et produire des SBOM automatiquement.
+
+Etape 5 : Déploiement
+Creations d'environnement fonctionnels sur base de livrables. 
+Il y a aussi tous les déploiements intermédiaires 
+Un déploiement est une étape protéiforme qui peut comprendre l'automatisation du déploiement d'un réseau, composants d'infrastructure, ....
+
+L'objectif cible d'un pipeline est :
+de livrer des compposants prêts à la mise en production 
+de mettre directement les composants en production
+
+L'approche "Guichet / ticket" est un frein dans fluidité d'une CI/CD.
+Dans le déploiement, la tendance est de déployer des composants discrets et legers et démarrant assez vite. 
+
+Tutorial Gitlab : https://xavki.blog/gitlab-tutorials-et-formation/
+
+Gitops
+------
+Approche différente en flux tirés. C'est Git qui est la source de vérité pour ce qui doit être déployé en Production. 
+Concept de PULL
+La source de vérité c'est GIT
+Appliquer des pratiques de DEV sur ces concepts Infra
+Livrer des applications mais aussi livrer des environnements complets
+
+Automatisation dans le déploiement des données
+Toute automatisation heurte le mur de la msie à jour des données dès que l'on sort de l'effet démo
+
+La gestion de la mise à jour des données est le maillon faible qui ralentira toute tentative d'automatisation. 
+Comment gérer le rollback dans le cas d'incident. 
+La restauration des données n'est pas une solution fiable. 
+
+A la livraison, on prévoit des scripts pour revenir dans l'état initial.
+On peut choisir des types de BD et une approche CQRS des applications. Cela permet de rejouer des évenements stockés. 
+
+Modèle Expand/Contract
+Introduire un changement dans la structure des données sans impact sur le code actuel. 
+Modifier ensuite le code existant pour utiliser ces nouvelles structures. 
+Période d'attente pendant laquelle les changements sont persistés en plus gde quantité.
+Et enfin, on supprime les anciennes structures. 
+
+Tests Sécurité
+--------------
+Gestion de sécurité est transverse et un aspect important dans une approche DevOps
+L'analyse du code est à faire lors de l'étape de Build
+L'analyse dynamique (DAST) est applicable à la phase de TEST et DEPLOIEMENT
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+

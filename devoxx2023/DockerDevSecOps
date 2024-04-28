@@ -1,0 +1,54 @@
+DEVOXX 2023
+
+Docker au service du DevSecOps
+Carmen Piciorus (La Poste)
+Expert Sécurité
+
+Déployer les applications dans le cloud de manière sécurisée.
+
+La peur du développeur
+----------------------
+plusieurs fw, plusieurs solutions. Comment assurer la compatibilité du poste quand on change. 
+Solution définir un catalogue d'images docker pour les DEV (afin de disposer des packages nécessaires)
+Création des images
+Détection des vulnérabilités (Solution anchore)
+Création d'un catalogue privé (style dockerhub)
+Scan automatique des images via anchore)
+Les images sont poussées sur OpenShift / Nexus
+Travail sur la taille des images
+On met uniquement les composants nécessaires pour limiter la taille des images
+Comment écrire le dockerfile via la notion de layer en mettant l'applicatif sur la dernière couche (afin de pouvoir utiliser le cache)
+Build multistage permet de réduire la taille de l'image docker
+Le DEV fait du docker compose afin de démarrer tous les composants nécessaires pour travailler (BD, Réseau, ....)
+Utilisation du buildpacks qui permet de transformer le code en image Docker. 
+Détecte le code et créer l'image nécessaire pour faire tourner l'application.
+
+La peur de l'expert Sécurité
+Attaques et vulnérabilités sur notamment les apps Legacy
+dependency check, scan du code, scan des licences (SAST, SCA)
+
+Souvent le pb vient de la librairie de la librairie
+Nécessaire de faire le build avant
+
+Partie dynamique (DAST) utilisation d'une image owasp/zap
+Scan dynamique de l'application en exécution. Cela fonctionne uniquement pour des Webapps
+Attention le niveau d'intrusion. En production, cela peut avoir des impacts
+GitlabCi : Conteneurscanning (autre solution)
+
+La fuite des données
+Pas de secrets dans les configmap
+Attention ne pas mettre les login/pwd dans la config des images. Utiliser image inspect
+Il faut aussi pouvoir corriger
+Mettre en commun tous les résultats des tests sécu : utilisation d'Elastic Search
+Cela permet de recroiser les données. Production d'une fiche de santé de l'application.
+Anchore : production du SBOM
+le digest permet de savoir si l'image n'a pas été altérée. (A utiliser dans le dockerhub)
+docker manifest inspect : contient les layers notamment
+
+La peur de l'Ops
+Les indisponibilités, les dépendances et la résilience
+Il doit pouvoir monter des environnements à la demande.
+Kakfa pour la partie asynchrone.
+
+
+

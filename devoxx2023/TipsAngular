@@ -1,0 +1,39 @@
+DEVOXX 2023
+
+6 tips pour améliorer votre WebApp Angular
+Camille Pillot (TAKIMA)
+
+Les Alias
+Mes imports pas jolies du tout
+tsconfig.ts compileroptions
+mettre les chemins de styles aussi
+
+TrackBy option à rajouter avec une méthode
+prend en param index et item
+Identifier l'objet de manière unique afin d'indiquer à Angular ce qui est mis à jour. 
+direction ngFor 
+Performance sur des listes longues.
+
+Unsubscribe
+Les observables premier cause de fuite mémoire
+Si l'objet est détruit les observables ne sont pas détruits
+Toujours penser à unsubsribe. 
+
+Le pipe
+fonction HTML
+une entrée qui est transformée.
+
+Le pipe permet de ne pas gérer le subscribe / insubscribe. 
+Pipe avec async permet de retirer du code. 
+
+A utiliser avec ngif pour avoir qu'un seul souscription.
+
+Resolver
+type de service / résoudre les données.
+ng generate resolver
+Le resolver se rajoute sur les routes
+Sépare les appels et il empêche l'affichage total de la page (jusqu'à la fin du resolver)
+Il faut charger les données les plus importantes en premier. Exp UI
+
+
+

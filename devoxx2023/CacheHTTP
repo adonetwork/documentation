@@ -1,8 +1,7 @@
 DEVOXX 2023
 Le cache HTTP
-
+Test GIT
 Hubert Sablonnière (Clever Cloud)
-
 Mai 1996 ; Publication RFC 1945
 Concepts de base du cache HTTP
 Client fait un appel, réponse du serveur et au retour la réponse est en cache. Si même demande, on utilise le cache. 

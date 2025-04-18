@@ -1,0 +1,51 @@
+No Estimates
+
+Les projets en informatique dépasse de 27%
+1 projet dépasse de 200% sur le budget et 70% en délai
+
+Story Points 
+Au départ c'est XP (Jour Ingénierie idéale) 
+Cela n'arrive jamais. Sollicitations importante
+Vocabulaire tombé en désuetude. On passe par le story point & vélocité. 
+
+D'ou vient le nom de No Estimates
+Confusion entre deux concepts
+Effort pour réaliser une tâche
+Estimation utilisée pour la construction du planning
+Bouquin No Estimates 2016
+
+Deux techniques que nous allons comparer
+
+SP
+Backlog de tâches - Effort de complexité
+Ensuite on estime la vélocité
+
+NE
+On n'estime pas en effort de complexité. 
+Très peu de projets ou il y a une corrélation entre les SP et les charges
+Au dela de 3 SP cela commence à décrocher. Il faut donc découper au max
+
+En changement de nom de la tâche, cela change l'estimation 
+Beaucoup de détails sur une tâche --> Equipe prend confiance sous estimation
+Changer l'ordre des tâches ne change pas la donne On aura à sous estimer une tache si la tache précédente a été sur estimée
+
+Poker Planning outil intéressant sauf si l'équipe est junior on aura une sous estimation 
+Faire une checklist sur chaque tache pour estimer : chronophage
+
+Partir de l'historique pour estimer est une bonne pratique.
+Assouplir le périmètre des sprints --> on augmente la qualité de l'estimation 
+
+Steve Mac Connel
+2006 Software estimation 
+
+IA dans l'estimation 
+Réseaux de neurones sont équivalents aux méthodes simples
+Faut il les entrainer sur un projet ou plusieurs projets --> pas de différence. 
+
+Tawos DataSet ??
+Quand on définit un jalon on livre rarement ce que l'on a prévu
+
+
+
+
+

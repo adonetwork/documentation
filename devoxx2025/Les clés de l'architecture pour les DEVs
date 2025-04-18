@@ -1,0 +1,32 @@
+Les clés de l'architecture pour les DEVs
+10 / 20 ans changements importants. 
+Choix ont été fait avant et on est dans l'appli
+Mais maintenant on passe par du modulaire, beaucoup de dépendances
+L'archi n'est jamais finit, cela bouge tout le temps
+
+Sociéta AROLLA
+
+Ce n'est pas grave de ne pas tout savoir
+Vivre dans l'incertitude
+
+Poser le contexte avec un diagramme de contexte (C4)
+Poser le problème c'est la première clé 
+Quality Attributes
+Ne pas les oublier et il faut les mesurer
+
+Il faut aussi négocier les clients, eduquer les clients 
+Les contraintes techniques ont permis de modéliser le design de l'application 
+Vue logique de notre système. 
+
+Frugalité : Toute solution amène de nouveaux problèmes. 
+L'architecture se pense en perspectives. 
+
+Il faut dans l'architecture de prévoir l'avenir en mettant des solutions pas chères pour être reversibles
+L'art du tradeoff : Base de l'architecture. Il faut penser en incovenients par rapport aux solutions proposées.
+
+L'architecture ca evolue tout le temps. Elle est dynamique. 
+Quand on a un contrat, on le respecte. S'il y a des changements, on laisse l'ancienne valeur. Pas breaking change
+Dès qu'un contrat est utilisé, tu n'en ai plus propriétaire. 
+Réunions archi time boxed
+Alterner le raisonnement individuel et en équipes
+

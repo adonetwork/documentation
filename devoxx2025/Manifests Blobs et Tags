@@ -1,0 +1,45 @@
+Manifests Blobs et Tags
+Images de conteneurs 
+
+Yves Brissaud
+Dagger
+
+Comment fonctionne une image docker ? 
+
+Build/Inspect
+Push & Registry
+Pull et Tags
+Update
+Etendre
+
+Build
+Créer une image de la registry en local (comment cela fonctionne ???)
+Une fois buildé tu peux aller voir l'intérieur de l'image. Fichier index.json 
+valeur mediatype + digest (hash)
+Répertoire blobs pour voir le contenu de l'image
+Un manifest par image
+Il existe un manifeste d'attestation en plus pour chaque manifest avec un lien vers les autres manifestes
+Le config contient les méta données (historique, informations d'exécution, )
+Plus des layers
+
+Image index qui contient les images et chaque Image = manifest + Config + Layer
+
+Push
+Il faut pousser dans une registry
+Déduplication, meta données (tags) et versions
+
+Dans une registry, on a les blobs et les repositories
+
+Pull
+Convertir tag en digest
+Sélectionner l'image c'est à dire le manifeste
+Télécharger les blobs et layer
+
+
+
+
+
+
+
+
+

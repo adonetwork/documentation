@@ -1,0 +1,45 @@
+Vibe Testing 
+
+AI y Test
+
+Yann Helleboid (ORANGE)
+
+Dans le test, première révolution dizaine d'années. Code automatisation des tests
+Et après deux ans, l'IA est la seconde révolution dans le domaine du test
+
+Est ce que l'IA peut être un bon assistant pour les activités du test
+Quelle IA ? Il a plusieurs modèles différents. Comment faire ce choix 
+
+Paramètres : 
+Qualité des résultats
+Couts
+L'impact environnemental
+Optimiser l'efficacité. 
+
+Mettre l'accent sur la rédaction du prompt
+
+Démo
+Je suis un testeur et j'ai une appli web
+j'ai accès au code
+code API Backend + code Backend
+Swagger de l'API
+je peux faire des copies d'écran
+
+Dinootoo Toolbox ORANGE. 
+Dans le prompt
+Il faut lui donner le rôle qu'il doit joué
+tu donnes aussi les outils
+tu indiques le périmètre du test (test fonctionnel, cas d'erreurs, cas aux limites)
+tu indiques comme les tests doivent être réalisés
+il faut aussi limiter le côté verbeux de l'IA
+
+Dans le cas ou je n'ai pas le code, je lui donne des screenschots
+Tu peux meme lui donner des écrans fil de fer (mockups)
+
+Le code ne fonctionne pas à 100%
+L'IA ne remplace pas le testeur
+Mais le testeur IA va remplacer le testeur non IA
+IA est gourmande
+IA fait gagner du temps
+La qualité des données est essentielle
+

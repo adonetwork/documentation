@@ -1,0 +1,59 @@
+Apache Iceberg
+Devoxx 2025
+
+Pourquoi ce nouveau format s'impose dans tous les écosystèmes data ?
+Bertrand Paquet
+Prod Doctolib
+
+Table prise de RV chez Doctolib
+3,5B rows
+2,5 TB
+
+Grosse requete
+Distributed Query engine (Amazon Athena)
+Catalog (AWS Blue)
+Storage (S3)
+
+²upload fichier CSV sur S3. 
+Découper le fichier CSV en plusieurs fichiers 
+
+Solution simple à mettre en oeuvre
+La problématique c'est comment mettre à jour les données sur S3. 
+13s cela reste lent
+CSV approche ligne qui n'est pas optimisé pour le requettage. Approche colonne plus intéressante. On change le type on passe de CSV à PARQUET (Techno Apache)
+Avec cette approche, il n'est pas nécessaire de lire toutes les données 
+Solution meilleure pour le requettage. 
+
+La problématique c'est comment on met à jour ces fichiers avec les données en BD. 
+Doctolib : Traitement batch qui permet de mettre à jour les données. Nous ne sommes pas en T/R
+
+Plusieurs solutions
+Google Big Query
+Amazon Redschift
+Apache Hive
+
+Differences File Format / Table Format
+
+Apache Iceberg créé par Netflix et donner à la fondation Apache
+C'est la solution utilisé par défaut. 
+Iceberg Table Format
+ACID Transaction 
+Performance à l'échelle
+Open Source
+No Costly Distraction
+
+Il faut prévoir la maintenance des données sur S3. 
+Plusieurs solutions sont disponibles en standard
+
+Chez Doctolib, Refresh entre les données transactionnelles et les données lake
+Solution à plusieurs étages
+Kafka/Debezium Avec debezium on récupérer les opérations de modifications via les journaux et ensuite on les stocke dans les topics KAFKA
+Traitements Batchs qui récupère les données sur Kafka pour les stocker sur S3 avec un provisionning du catalogue
+A partir des opérations, on reconstitue les tables dans iceberg. Ce sont des tables mirroirs
+Utiliser Apache Spark, pour traiter ces opérations
+
+
+
+
+
+

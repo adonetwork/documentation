@@ -1,0 +1,62 @@
+Semantic Kernel / LLM
+
+Impuissance des LLMs
+Applications actuelles sont figées
+	interactions contraintes
+	données fixes
+	Changement couteux et complexe
+
+
+Applications intelligentes
+On repense l'interface en langage naturel
+experiences propres à chaque user
+Apprend et s'améliorer en permanence
+
+Un simple prompt et un LLM n'est pas suffisant
+les modèles d'IA ne connaissent pas vos données
+LLM tout seul il est bon dans le périmètre qu'il connait
+Certaines taches fonctionnent mieux en LLM d'autres en code
+
+Un LLM est une partie de l'application donc il faut assembler les briques
+
+LLM ou le met on 
+	Interface universelle
+	Raisonnement et plannification
+	Mémoire ou contexte
+
+Semantic Kernel adresse les deux derniers points
+
+LLM c'est un appel API. Les LLM fournient des SDK
+SDK sont agnostique (ne dépendent pas des modèles)
+Langchain mais c'est du python
+
+Semantic Kernel est un SDK (orchestration léger)
+Plugins
+Planners : séquence de tâches
+Personas : Agents on délègue une tâche à un agent
+Memory : gérer le contexte entre les différents prompts
+
+Différents plugins : plugins sémantiques
+package de prompts
+
+Plugin natif ce sont des fonctions écrits dans des langages
+
+on créé un objet (kernel)
+On injecte les plugins dans le kernel créé
+C'est le LLM qui indique l'ordre d'invocation 
+
+Agent IA
+Définir un agent qui fait une tache précise. 
+Une application peut contenir un ensemble d'agent. 
+Agent de récupération de données 
+Agent qui réalise des actions/ tâches
+Agent autonome qui opère de manière indépendante
+Les agents peuvent travailler avec des modèles différents
+Les agents communiquent de plusieurs facons 
+
+MCP : Ensemble d'outils, Ensemble de prompts
+Standards MCP
+Mettre à disposition d'une API, frameworks mais avec un LLM on passe à une notion d'agent avec une certaine intelligence
+On rajoute des capacités d'outils et non des librairies. 
+
+

@@ -1,0 +1,65 @@
+OAuth2 et OpenIDConnect
+Framework de permissions
+Permettre à des users de donner des permissions à des ressources
+Cette permission se fait au niveau d'un jeton access token
+
+On ne parle pas d'identité sur OAuth
+OIDC c'est un framework d'authentification 
+Faire du SSO
+Jeton id_token
+Construit sur OAuth
+Fournir des données identités détenues par un provider d'identité
+
+On ne partage pas mon login/pwd à un site tierce
+Si je donne mes identifiants je donne tout mon périmètre et pas un périmètre restreint
+On ne peux pas révoquer non plus
+
+4 entités
+Ressource Owner
+Serveur d'identité
+Client c'est mon appli
+Serveur de ressources
+
+Ower se connecte au serveur d'identité pour obtenir un token
+Et on donner le token au client
+Deux types de tokens
+token d'authorisation
+token d'identité
+
+On ne veux pas faire transiter les tokens
+On fournit non plus un token mais un code
+Ce code a une durée de vie très courte
+Il fonctionne qu'une seule fois
+
+Le client créé un lien sur le serveur d'identité
+et le donne à l'utilisateur
+Il faut que le serveur d'identité connaisse le site
+Il faut indiquer une url de callback
+Le serveur d'identité donne un ID et un secret
+Il expose un url d'accès au serveur d'identité par défaut et cette url est connu (endpoint)
+le client passe l'id de l'appli, l'url de redirection, type de réponse et le scope (scope spécial openid email profile)
+
+il faut consommer l'url de callback qui nous permet de récupérer le code
+
+Maintenant il faut échanger le code par un token
+Le serveur d'identité à une ressource pour échanger le code par un token (POST)
+il faut passer un grant type qui prend la valeur authorization_code
+il faut repasser l'url de redirection 
+Il faut authentifier l'appel en passage le client id et le secret
+
+En retour On obtient un JWT Token (header, payload, signature) séparé par des points
+JWT Debugger pour décoder un token JWT
+
+A partir de ce token, On récupère le payload mais avant il faut vérifier la signature
+On parse le payload et on récupère les données du token
+
+En ensuite on créé une session dans l'application 
+Solution OpenSource : DEX
+
+On peut utiliser une librairie Spring Security
+
+il faut créer de la config  url du serveur d'identité, le client id et le secret et l'url de redirection 
+Starter SpringBoot oauth 
+Classe de configuration Spring Security
+
+

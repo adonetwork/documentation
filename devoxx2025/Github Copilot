@@ -1,0 +1,31 @@
+Github Copilot
+Aller plus loin que la complétion du code
+
+Copilot Instructions sur Github.com
+Persistence sur le site de Github et non pas sur les IDE
+On peut aussi utiliser plusieurs modèles IA différents
+C'est aussi utilisable sur les différents IDE
+
+VSC : Sur le chat Copilot on ajoute le projet
+Plusieurs modes : ask, edit et multiedit
+Ajouter la codebase globale ou seulement certains fichiers
+On lui demande d'ajouter une nouvelle fonctionnalité
+Il peut modifier tous les fichiers correspondants et ensuite on accepte les modifs
+Au niveau de github.com, on génère une PR et on demande à Copilot de créer une description de la PR
+Une fois la PR généré et transmise. Copilot analyse le code et fait des suggestions 
+
+Github advance Security
+La PR est analysé sur les aspects Sécu
+Si le répo est public, on dispose de cette fonctionnalité
+
+Troisieme mode Agent
+Mode MCP
+C'est quoi la notion d'Issue
+Avec ce mode on voit le processus de développement par rapport au mode edit
+On peut aussi corriger les erreurs
+
+
+
+
+
+

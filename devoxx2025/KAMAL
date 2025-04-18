@@ -1,0 +1,47 @@
+KAMAL
+Comment déployer ses applications
+
+20 ans évolutions 
+
+AWS (EC2) en 2006
+Heroku (2009) essor du PAS Le développeur pousse son application
+2013 Arrive Docker et les containeurs. Outil qui permet de structurer les applications à déployer
+2015 Kubernetes Solution complexe. 
+Après 2016 des outils emergent Netligy, Vercel, ....
+En 2023 KAMAL arrive
+
+On melange les outils et les solutions d'infra
+
+Sur le Laas, on choisit l'OS, RAM, .... Si le serveur physique plante c'est l hebergeur qui gère.
+Par contre c'est de la responsabilité du client d'installer les outils, l'infra c'est l'hebergeur
+
+Sur le Paas, l'hebergeur gère tout sauf l'application et les données
+Pas besoin d'etre expert en infra
+Par contre le Paas est plus cher que le Laas
+
+KAMAL : si on garde le Laas mais avec une simplicité du Paas
+L'idée c'est de sortir du Cloud 
+En 2023 Version 2 de KAMAL
+Fin 2024 Solution mature
+
+Tu ne veux pas faire Cube, tu as des connaissances sur docker. 
+KAMAL est un wrapper (Docker, SSH, ReverseProxy, TLS, scripts, .... )
+Manière standardisée les usages de déploiement
+
+Liberté du choix du cloud provider
+PAs d'agent, tout passe par du SSH
+Intégration avec Docker; images buildées
+Reverse proxy avec gestion auto des certificats TLS
+Blue green 
+Infra as code: config dans un fichier. 
+
+Pré requis
+KAMAL est écrit en ryby 
+Server une VM Sous Linux
+
+3 commandes 
+KAMAL init 
+KAMAL setup
+KAMAL deploy
+
+

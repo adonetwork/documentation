@@ -1,0 +1,51 @@
+Open Rewrite
+
+Gouvernance technologique 
+Accelerateur durable basé sur des standards, de l'innovation, de l'observabilité, et de la collaboration 
+
+Eco système Java evolue de plus en plus vite et cela impacte aussi les librairies sous jacentes (Spring)
+Outil de génération de code
+Croissance du nombre d'applications et d'équipes
+
+Solution Renovate à regarder !!!!
+Libriairies techniques 
+Communication 
+Méta données et métriques (indicateurs sur l'état de la dette technique)
+Formation 
+Outils
+
+Open Rewrite
+Applique des transformations de code source auto
+Respecte la mise en page de code
+Reproductible et testable
+Approche par composition
+Catalogue de recettes open source
+Bonne intégration Intellij
+
+Regarder une approche MAVEN multimodule
+
+Pour appliquer une recette OpenRewrite cela se fait par une commande MAVEN
+Migration log4j vers logback
+Migration Junit 4 vers 5
+
+Création d'une recette déclarative
+Une recette est une fichier YML
+
+Si ce n'est pas suffisant, il faut créer une recette en java 
+Exemple d'utilisation : on peut créer ou invoquer une recette pour supprimer tous les imports non nécessaires ou bien peut être rajouter les entêtes applicatives 
+
+Une recette en Java est une classe Java spécifique
+Dans le fichier , on peut mélanger des recettes déclaratives et des recettes en java
+
+Différents cas d'utilisation 
+Adoptions de nouvelles fonctionnalités
+Combattre la dette technique
+Remédiations de vulnérabilités 
+Convergences vers des bonnes pratiques
+Réduction de fragmentation techno (ex les assertions, migrer vers uniquement assertj)
+
+Voir s'il existe un plugin pour openrewrite avec VSC
+Sur du multimodule, on peut préciser des préconditions dans le fichier YML par ex pour ne rajouter une dépendance que le pom du module et non sur le pom parent
+
+OpenRewrite ce n'est pas plateforme de changement à l'échelle
+Il faut mesurer que ce que vous voulez gérer. 

@@ -1,0 +1,49 @@
+Plonger au coeur des PDFS
+Fredéric Bisson
+
+Incovénients
+Mise en page figée
+peu d'évol
+Pas d'intéractions
+Pb accessiblité 
+
+Avantages
+Structure monolithique
+Adapté à l'archivage
+Signature électronique
+
+Poids d'un PDF : 50% Ressources graphiques
+Il existe des outils de compression de PDF. 
+Ces outils maltraitent les images 
+PB de conformité
+
+PDF 1.0 en 93
+Derniere version 2006 PDF 1.7
+Passage à l'ISO 
+2020 version PDF 2.0 (n'apporte pas grand chose)
+
+PDF : Format de données générique
+Basé sur postscript 
+Table de référence croisée dans le PDF afin de retrouver les ressources du PDF. 
+Trailer (annonce) Dictionnaire non référencé;
+Deux réfs : Catalogue et les méta données
+Commandes graphiques 
+On a aussi des flux et des filtres. 
+Les ressources sont dans des flux 
+Chaque flux est filtré
+
+Lecture d'un fichier PDF.
+PDF par mail dans les années 90
+Tailles de fichiers avant 1.5 < 10Go et > 1.5 pas de limite
+Pour lire un PDF, on repère l'entête
+On va à la fin du fichier pour rechercher l'annonce
+Pour récupérer le catalogue startxref
+On décode les références croisées
+On navigue dans le document pour lire les objets
+
+Comment optimiser
+Chaines litterales ou hexadécimales
+
+Comment supprimer le superflu
+Dans les PDFs on peut retrouver du XML que l'on peut optimiser.
+

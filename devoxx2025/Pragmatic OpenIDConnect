@@ -1,0 +1,60 @@
+Pragmatic OpenIDConnect
+Guillaume Charvet (AXA)
+
+Libriaire React OIDCClient framework
+Arrêt de la maintenance de la librairie. Ramener les coockies sur les front n'est pas sécure. 
+
+Réécriture de la librairie
+Eviter les FS sur le front 
+Sur le domaine de la sécurité, tout est question de curseur
+
+OIDC Client Side
+access_token
+refresh_token
+id_token
+
+Le principe de OAuth2 : on donne des droits limités durant une durée limitée
+access_token : durée de vie courte
+refresh_token : durée de vie plus longue pour récupérer les jeux de clés à jour. 
+aAuth2 ne décrit pas l'implémentation. OIDC est une implémentation oAuth2
+
+Plusieurs flows : Authorisation Code Flow, Client Credential Grants
+
+Démo : OIDC Client Github Framework JS
+Lors de l'appel vers le serveur d'identitié, plusieurs paramètres sont passés (cf images)
+notion de state généré par le framework. et quand on retourne l'appel, la valeur est passée à l'identique
+
+id_token c'est un JWT : Header, Paylod, Signature. 
+le id_token, il y a le nonce et on le vérifie avec celui du debut. 
+Le payload peut être plus important si on met plusieurs scopes
+
+l'access_token : il faut vérifier qu'il soit valide et on le passe dans l'appel. 
+Il faut validé l'audience : dans l'access token
+ensuite c'est les scopes.  ce n'est pas des rôles mais à un domaine fonctionnel
+ne pas utiliser member_off comme attribut
+
+Si le token est expiré il faut redemander de nouvelles clés via le refresh token
+
+faille XSS : exfiltrer les tokens
+Première pratique  : CSP (côté Serveur) pour limiter ce que peux faire le JS
+Seconde pratique : ServiceWorker Il sert de proxy pour offusquer les jeux de clés 
+ne pas utiliser id token à la place de access token
+durée de vie du service worker est gérée par le navigateur
+Troisième pratique : Silen Signin
+Création d'un cookie de session + présence de IFRAME (rajout de prompt none pour ne pas afficher la mire de login)
+Par contre, les navigateurs ne veulent plus utiliser les cookies de session 
+httpOnly : cookie non utilisable avec du JS
+
+OIDC Server Side
+Partie serveur plus sécurisée
+On ajoute un BFF : Backend For Frontend
+cookie a chiffrer mais prendre un algo resiliant : cookie important --> stockage --> Gestionnaire de clés
+
+DPOP
+Nouvelle RFC 
+Dans le serviceWorker on crée une clé privée pour signer chaque échange. Si on arrive pas à déchiffrer l'access token il est inutilisable
+On inject Dpop dans le header
+dans le token signé, on met la clé publique dans le JWT
+Ajout d'un champ dans le token de réponse : cnf
+On remplace le bearer par dpop
+

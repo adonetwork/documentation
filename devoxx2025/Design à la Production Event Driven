@@ -1,0 +1,44 @@
+Design à la Production 
+Event Driven Architecture
+
+Société PRIMARY
+
+Event Driven 
+Deux modules qui vont communiquer au travers d'un evt
+Notion de publisher / Event Handler
+
+Forces de cette archi
+Simplicité et bon découplage entre les deux modules
+Orientée Métier avec des évènements Métier
+Facile de se projeter sur de nouvelles UCS
+Evolutivité de l'archi
+Scalable
+Disponibilité (dépendance externe est KO, le système reste disponible)
+
+Pas mal de pbs
+La gestion des erreurs et des rejeux
+
+Sur la gestion des erreurs
+Si erreur on ne veut pas perdre le message . On crée une queue de secours
+Et ensuite on réémét l'evt.
+
+Lister les evts rejetés
+Rejouer un evt
+Pas de produit sur étagère. 
+
+Développement d'une interface spécifique
+
+Amélioration de l'outil : On gère des typologies d'erreurs
+On rajoute des actions unitaires 
+
+Ne pas hésiter à investir sur un outil de gestion des erreurs
+
+Les rejeux des evts
+Problèmatique de l'idempotence : l'utilisateur ne peut pas recevoir 5 fois la même notif
+Il faut définir une stratégie spécifique / Si peu d'erreur on peut le faire manuellement
+Une stratégie : expérimation du message par exemple 
+
+Si le bus ne fonctionne plus, il faut disposer d'un mecanisme de secours qui permet de faire partir les evts quand même
+Gérer la montée en charge et contractualiser les evts pour la montée en charge des équipes. 
+
+
